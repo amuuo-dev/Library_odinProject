@@ -42,3 +42,10 @@ function displayBook() {
   }
 }
 displayBook();
+
+let dialog = document.querySelector("#dialog");
+let newBookBtn = document.querySelector("#newbook-btn");
+
+newBookBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
