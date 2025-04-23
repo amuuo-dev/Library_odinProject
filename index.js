@@ -19,4 +19,18 @@ function addBookToLibrary(title, author, pages, readStatus) {
 }
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkein", 295, "Not read");
-console.log(myLibrary);
+addBookToLibrary(
+  "The Full Facts Book of Cold Reading",
+  "Ian Rowland",
+  241,
+  "Not read"
+);
+addBookToLibrary("The Alchemist", "Paolo Coelho", 208, "Not read");
+addBookToLibrary("The Three Musketeers", "Alexandre Dumas", 398, "Not read");
+
+let container = document.querySelector(".container");
+
+function displayBook() {
+  for (const book of myLibrary) {
+  }
+}
