@@ -32,5 +32,13 @@ let container = document.querySelector(".container");
 
 function displayBook() {
   for (const book of myLibrary) {
+    const div = document.createElement("div");
+    div.style.whiteSpace = "pre-line";
+    container.appendChild(div);
+
+    for (const [key, value] of Object.entries(book)) {
+      div.textContent += `${key.toUpperCase()}+${value}\n`;
+    }
   }
 }
+displayBook();
