@@ -7,3 +7,23 @@ body {
 h1 {
   text-align: center;
 }
+.container div {
+  margin-bottom: 15px;
+  border: 2px solid black;
+  width: 350px;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-wrap: normal;
+  box-sizing: border-box;
+  line-height: 3ch;
+}
+.container div:hover {
+  background-color: bisque;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  justify-content: center;
+  align-content: center;
+  gap: 15px;
+}

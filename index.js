@@ -37,7 +37,7 @@ function displayBook() {
     container.appendChild(div);
 
     for (const [key, value] of Object.entries(book)) {
-      div.textContent += `${key.toUpperCase()}+${value}\n`;
+      div.textContent += `${key.toUpperCase()} = ${value}\n`;
     }
   }
 }
