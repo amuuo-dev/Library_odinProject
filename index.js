@@ -19,18 +19,13 @@ function addBookToLibrary(title, author, pages, readStatus) {
 }
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkein", 295, "Not read");
-addBookToLibrary(
-  "The Full Facts Book of Cold Reading",
-  "Ian Rowland",
-  241,
-  "Not read"
-);
 addBookToLibrary("The Alchemist", "Paolo Coelho", 208, "Not read");
 addBookToLibrary("The Three Musketeers", "Alexandre Dumas", 398, "Not read");
 
 let container = document.querySelector(".container");
 
 function displayBook() {
+  container.textContent = "";
   for (const book of myLibrary) {
     const div = document.createElement("div");
     div.style.whiteSpace = "pre-line";
@@ -48,4 +43,13 @@ let newBookBtn = document.querySelector("#newbook-btn");
 
 newBookBtn.addEventListener("click", () => {
   dialog.showModal();
+});
+
+const submitBtn = document.querySelector("dialog button");
+
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  addBookToLibrary(title.value, author.value, pages.value, readStatus.value);
+  displayBook();
+  dialog.close();
 });
