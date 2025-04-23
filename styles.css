@@ -27,3 +27,18 @@ h1 {
   align-content: center;
   gap: 15px;
 }
+button {
+  background-color: papayawhip;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#newbook-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+dialog:open {
+  opacity: 1;
+}
