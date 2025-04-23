@@ -12,6 +12,14 @@ function Book(id, title, author, pages, readStatus) {
     (this.readStatus = readStatus);
 }
 
+Book.prototype.toggleReadStatus = function () {
+  if (this.readStatus === "Not Read") {
+    this.readStatus = "Read";
+  } else {
+    this.readStatus = "Not Read";
+  }
+};
+
 function addBookToLibrary(title, author, pages, readStatus) {
   const id = crypto.randomUUID();
   const book = new Book(id, title, author, pages, readStatus);
@@ -44,12 +52,12 @@ function addButtons() {
   const divs = document.querySelectorAll(".container div");
   Array.from(
     divs.forEach((div) => {
-      let button = document.createElement("button");
-      button.classList.add("remove");
-      div.appendChild(button);
-      button.textContent = "Remove Book";
+      let removeButton = document.createElement("button");
+      removeButton.classList.add("remove");
+      div.appendChild(removeButton);
+      removeButton.textContent = "Remove Book";
 
-      button.addEventListener("click", (event) => {
+      removeButton.addEventListener("click", (event) => {
         //where the button was clicked..find the exact div
         const parentDiv = event.target.parentElement;
         const bookId = parentDiv.dataset.id;
@@ -58,6 +66,24 @@ function addButtons() {
         for (const book of myLibrary) {
           if (book.id === bookId) {
             myLibrary.splice(book, 1);
+            displayBook();
+            break;
+          }
+        }
+      });
+
+      let toggleBtn = document.createElement("button");
+      toggleBtn.classList.add("toggle");
+      toggleBtn.textContent = "Toggle Read Status";
+      div.appendChild(toggleBtn);
+
+      toggleBtn.addEventListener("click", (event) => {
+        const parentDiv = event.target.parentElement;
+        const bookId = parentDiv.dataset.id;
+
+        for (const book of myLibrary) {
+          if (book.id === bookId) {
+            book.toggleReadStatus();
             displayBook();
             break;
           }

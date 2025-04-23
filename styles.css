@@ -42,3 +42,6 @@ button {
 dialog:open {
   opacity: 1;
 }
+.container div .remove {
+  margin-right: 15px;
+}
